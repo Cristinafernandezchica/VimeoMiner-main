@@ -13,7 +13,7 @@ public class CommentServiceTest {
     CommentService commentService;
     @Test
     public void findOne(){
-        CommentList comment = commentService.findOne("781632604","newyorker");
+        CommentList comment = commentService.findAll("781632604","newyorker");
 
         System.out.println(comment.getData().get(0).getUser());
 
