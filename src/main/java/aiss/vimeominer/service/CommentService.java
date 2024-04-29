@@ -2,6 +2,7 @@ package aiss.vimeominer.service;
 
 import aiss.vimeominer.model.Channel.Channel;
 import aiss.vimeominer.model.Comment.Comment;
+import aiss.vimeominer.model.Comment.CommentList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -16,18 +17,21 @@ public class CommentService {
     @Autowired
     RestTemplate restTemplate;
 
-    public Comment findOne(String id){
+    public CommentList findOne(String videoId, String channelId){
         HttpHeaders headers = new HttpHeaders();
         String token = "57d3ef4edf7af59951007f17a0b0f200";
-        String uri = "https://api.vimeo.com/videos/" + id +"/comments";
-        Comment comment = null;
+        String uri = "https://api.vimeo.com/channels/" + channelId + "/videos/" + videoId +"/comments";
+        CommentList comment = null;
         headers.set("Authorization","Bearer " + token);
         HttpEntity<Comment> request = new HttpEntity<>(null,headers);
-        ResponseEntity<Comment> response = restTemplate.exchange
-                (uri, HttpMethod.GET,request,Comment.class);
+        ResponseEntity<CommentList> response = restTemplate.exchange
+                (uri, HttpMethod.GET,request,CommentList.class);
         comment = response.getBody();
 
 
         return comment;
     }
+
+
+
 }
