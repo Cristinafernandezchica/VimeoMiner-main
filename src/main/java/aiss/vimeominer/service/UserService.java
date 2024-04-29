@@ -28,15 +28,4 @@ public class UserService {
         return user;
     }
 
-    /*
-    public User createUser(User user){
-
-        String uri = "https://api.vimeo.com/users/";
-
-        HttpEntity<User> request = new HttpEntity<>(user);
-        ResponseEntity<User> responseEx = restTemplate.exchange("https://api.vimeo.com/users/" + user.getId(), HttpMethod.POST, request, User.class);
-        User createdUser = responseEx.getBody();
-        return createdUser;
-    }
-    */
 }
