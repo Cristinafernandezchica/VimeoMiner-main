@@ -16,6 +16,10 @@ public class VideoService {
 
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    CaptionService captionService;
+    @Autowired
+    CommentService commentService;
 
     /*
     public Video findOne(String id){
@@ -33,7 +37,7 @@ public class VideoService {
     */
 
     // videos por channel
-    public List<Video> findAll(String id_channel){
+    public List<Video> findAll(String id_channel,Integer maxVideos, Integer maxComments){
         HttpHeaders headers = new HttpHeaders();
         String token = "57d3ef4edf7af59951007f17a0b0f200";
         String uri = "https://api.vimeo.com/channels/" + id_channel + "/videos";
@@ -42,9 +46,9 @@ public class VideoService {
         HttpEntity<String> request = new HttpEntity<>(null,headers);
         ResponseEntity<VideoList> response = restTemplate.exchange
                 (uri, HttpMethod.GET,request, VideoList.class);
-        videos = response.getBody().getData();
-        
-
+        videos = response.getBody().getData().stream().limit(maxVideos).toList();
+        videos.stream().forEach(v -> v.setCaptions(captionService.findAll(v.getId(),id_channel).getData()));
+        videos.stream().forEach(v -> v.setComments(commentService.findAll(v.getId(),id_channel).getData().stream().limit(maxComments).toList()));
         return videos;
     }
 

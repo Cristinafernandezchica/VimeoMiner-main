@@ -16,7 +16,7 @@ public class User {
     private String name;
     @JsonProperty("link")
     private String link;
-    @JsonProperty("picture_link")
+    @JsonProperty("pictures")
     private Pictures picture_link;
 
     @JsonProperty("uri")
@@ -54,12 +54,14 @@ public class User {
         this.link = link;
     }
 
-    @JsonProperty("picture_link")
+    @JsonProperty("pictures")
     public String getPictureLink() {
-        return picture_link.getBaseLink();
+
+            return picture_link.getBaseLink();
+
     }
 
-    @JsonProperty("picture_link")
+    @JsonProperty("pictures")
     public void setPictureLink(Pictures picture_link) {
         this.picture_link = picture_link;
     }

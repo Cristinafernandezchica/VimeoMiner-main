@@ -16,7 +16,7 @@ public class VideoServiceTest {
     @Test
     @DisplayName("Get all videos")
     void findAll() {
-        List<Video> videos = videoService.findAll("newyorker");
+        List<Video> videos = videoService.findAll("newyorker",2);
         System.out.println(videos);
 
     }

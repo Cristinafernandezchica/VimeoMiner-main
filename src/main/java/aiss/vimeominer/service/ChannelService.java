@@ -1,5 +1,6 @@
 package aiss.vimeominer.service;
 
+import aiss.vimeominer.model.Caption.Caption;
 import aiss.vimeominer.model.Channel.Channel;
 import aiss.vimeominer.model.Video.Video;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,11 @@ import org.springframework.web.client.RestTemplate;
 public class ChannelService {
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    VideoService videoService;
 
-    public Channel findOne(String id){
+
+    public Channel findOne(String id,Integer maxVideos, Integer maxComments){
         HttpHeaders headers = new HttpHeaders();
         String token = "57d3ef4edf7af59951007f17a0b0f200";
         String uri = "https://api.vimeo.com/channels/" + id;
@@ -22,7 +26,7 @@ public class ChannelService {
         ResponseEntity<Channel> response = restTemplate.exchange
                 (uri, HttpMethod.GET,request,Channel.class);
         channel = response.getBody();
-
+        channel.setVideos(videoService.findAll(channel.getId(),maxVideos, maxComments));
 
         return channel;
     }

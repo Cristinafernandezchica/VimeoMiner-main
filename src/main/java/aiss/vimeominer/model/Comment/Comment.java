@@ -81,6 +81,10 @@ public class Comment {
         sb.append('=');
         sb.append(((this.createdOn == null)?"<null>":this.createdOn));
         sb.append(',');
+        sb.append("user");
+        sb.append('=');
+        sb.append(((this.user == null)?"<null>":this.user));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
