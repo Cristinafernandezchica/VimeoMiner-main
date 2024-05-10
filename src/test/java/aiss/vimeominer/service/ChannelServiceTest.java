@@ -24,7 +24,7 @@ public class ChannelServiceTest {
 
     @Test
     void findOne() throws MaxCommentsException, MaxVideosException {
-        Channel channel = channelService.findOne("newyorker",2, 2);
+        Channel channel = channelService.findOne("newyorker",5, 2);
         System.out.println(channel);
 
     }

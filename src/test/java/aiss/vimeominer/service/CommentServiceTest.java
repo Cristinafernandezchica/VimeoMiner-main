@@ -15,9 +15,6 @@ public class CommentServiceTest {
     @Test
     public void findAll(){
         CommentList comment = commentService.findAll("781632604","newyorker");
-        for(Comment c : comment.getData()) {
-            System.out.println(c);
-        }
-
+        System.out.println(comment);
     }
 }

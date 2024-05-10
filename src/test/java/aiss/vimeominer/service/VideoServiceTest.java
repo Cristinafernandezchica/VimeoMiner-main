@@ -20,8 +20,5 @@ public class VideoServiceTest {
     void findAll() throws MaxCommentsException, MaxVideosException {
         List<Video> videos = videoService.findAll("newyorker",2,0);
         System.out.println(videos);
-        for(Video v : videos) {
-            System.out.println(v.toString());
-        }
     }
 }

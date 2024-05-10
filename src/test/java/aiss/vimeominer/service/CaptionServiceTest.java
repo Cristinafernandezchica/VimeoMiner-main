@@ -22,7 +22,6 @@ public class CaptionServiceTest {
     @Test
     void findAll(){
         CaptionList caption = captionService.findAll("781632604","newyorker");
-
         System.out.println(caption.getData());
     }
 }
