@@ -55,11 +55,11 @@ public class Caption {
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null)?"<null>":this.id));
-        sb.append(',');
+        sb.append(",\n");
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null)?"<null>":this.name));
-        sb.append(',');
+        sb.append(",\n");
         sb.append("language");
         sb.append('=');
         sb.append(((this.language == null)?"<null>":this.language));

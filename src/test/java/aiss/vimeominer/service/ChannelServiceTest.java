@@ -1,5 +1,7 @@
 package aiss.vimeominer.service;
 
+import aiss.vimeominer.exception.MaxCommentsException;
+import aiss.vimeominer.exception.MaxVideosException;
 import aiss.vimeominer.model.Channel.Channel;
 import aiss.vimeominer.transformer.ChannelTransformer;
 import aiss.vimeominer.transformer.VideoMinerUser;
@@ -21,7 +23,7 @@ public class ChannelServiceTest {
 
 
     @Test
-    void findOne() {
+    void findOne() throws MaxCommentsException, MaxVideosException {
         Channel channel = channelService.findOne("newyorker",2, 2);
         System.out.println(channel);
 

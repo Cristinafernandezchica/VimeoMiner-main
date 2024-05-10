@@ -68,23 +68,23 @@ public class Comment {
         sb.append("uri");
         sb.append('=');
         sb.append(((this.uri == null)?"<null>":this.uri));
-        sb.append(',');
+        sb.append(",\n");
         sb.append("id");
         sb.append('=');
         sb.append(((this.getId() == null)?"<null>":this.getId()));
-        sb.append(',');
+        sb.append(",\n");
         sb.append("text");
         sb.append('=');
         sb.append(((this.text == null)?"<null>":this.text));
-        sb.append(',');
+        sb.append(",\n");
         sb.append("createdOn");
         sb.append('=');
         sb.append(((this.createdOn == null)?"<null>":this.createdOn));
-        sb.append(',');
+        sb.append(",\n");
         sb.append("user");
         sb.append('=');
         sb.append(((this.user == null)?"<null>":this.user));
-        sb.append(',');
+        sb.append(",\n");
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {

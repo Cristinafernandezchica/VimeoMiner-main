@@ -104,31 +104,31 @@ public class Video {
         sb.append("uri");
         sb.append('=');
         sb.append(((this.uri == null)?"<null>":this.uri));
-        sb.append(',');
+        sb.append(", \n");
         sb.append("id");
         sb.append('=');
         sb.append(((this.getId() == null)?"<null>":this.getId()));
-        sb.append(',');
+        sb.append(", \n");
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null)?"<null>":this.name));
-        sb.append(',');
+        sb.append(", \n");
         sb.append("description");
         sb.append('=');
         sb.append(((this.description == null)?"<null>":this.description));
-        sb.append(',');
+        sb.append(", \n");
         sb.append("release_time");
         sb.append('=');
         sb.append(((this.release_time == null)?"<null>":this.release_time));
-        sb.append(',');
+        sb.append(", \n");
         sb.append("comments");
         sb.append('=');
         sb.append(((this.comments.toString() == null)?"<null>":this.comments.toString()));
-        sb.append(',');
+        sb.append(", \n");
         sb.append("captions");
         sb.append('=');
         sb.append(((this.captions.toString() == null)?"<null>":this.captions.toString()));
-        sb.append(',');
+        sb.append(", \n");
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {

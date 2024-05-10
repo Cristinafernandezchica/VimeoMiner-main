@@ -1,5 +1,7 @@
 package aiss.vimeominer.service;
 
+import aiss.vimeominer.exception.MaxCommentsException;
+import aiss.vimeominer.exception.MaxVideosException;
 import aiss.vimeominer.model.Video.Video;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,8 +17,9 @@ public class VideoServiceTest {
     VideoService videoService;
     @Test
     @DisplayName("Get all videos")
-    void findAll() {
-        List<Video> videos = videoService.findAll("newyorker",2,3);
+    void findAll() throws MaxCommentsException, MaxVideosException {
+        List<Video> videos = videoService.findAll("newyorker",2,0);
+        System.out.println(videos);
         for(Video v : videos) {
             System.out.println(v.toString());
         }
