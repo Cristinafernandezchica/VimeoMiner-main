@@ -1,23 +1,21 @@
 package aiss.vimeominer.service;
 
-import aiss.vimeominer.model.Caption.Caption;
 import aiss.vimeominer.model.Comment.Comment;
 import aiss.vimeominer.model.Comment.CommentList;
+import aiss.vimeominer.model.User.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class CommentServiceTest {
+public class UserServiceTest {
+
     @Autowired
-    CommentService commentService;
+    UserService userService;
 
     @Test
-    public void findAll(){
-        CommentList comment = commentService.findAll("781632604","newyorker");
-        for(Comment c : comment.getData()) {
-            System.out.println(c);
-        }
-
+    public void findAll() {
+        User user = userService.findOne("newyorker");
+        System.out.println(user);
     }
 }

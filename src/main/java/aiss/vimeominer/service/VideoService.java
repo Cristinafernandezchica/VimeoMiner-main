@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+
 @Service
 public class VideoService {
 
@@ -21,20 +22,6 @@ public class VideoService {
     @Autowired
     CommentService commentService;
 
-    /*
-    public Video findOne(String id){
-        HttpHeaders headers = new HttpHeaders();
-        String token = "57d3ef4edf7af59951007f17a0b0f200";
-        String uri = "https://api.vimeo.com/videos/" + id;
-        headers.set("Authorization","Bearer " + token);
-        Video video = null;
-        HttpEntity<Video> request = new HttpEntity<>(null,headers);
-        ResponseEntity<Video> response = restTemplate.exchange
-                (uri, HttpMethod.GET,request,Video.class);
-        video = response.getBody();
-        return video;
-    }
-    */
 
     // videos por channel
     public List<Video> findAll(String id_channel,Integer maxVideos, Integer maxComments){

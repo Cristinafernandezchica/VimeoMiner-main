@@ -23,8 +23,7 @@ public class ChannelServiceTest {
     @Test
     void findOne() {
         Channel channel = channelService.findOne("newyorker",2, 2);
-        // VideoMinerUser user = channelTransformer.transform(channel).getVideos().get(0).getComments().get(0).getAuthor();
-        System.out.println(channel.getVideos().get(0).getComments().get(0).getUser());
-       //  System.out.println(user);
+        System.out.println(channel);
+
     }
 }

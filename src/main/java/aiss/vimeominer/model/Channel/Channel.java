@@ -99,7 +99,7 @@ public class Channel {
             sb.append(',');
             sb.append("id");
             sb.append('=');
-            sb.append(((this.id == null)?"<null>":this.id));
+            sb.append(((this.getId() == null)?"<null>":this.getId()));
             sb.append(',');
             sb.append("name");
             sb.append('=');

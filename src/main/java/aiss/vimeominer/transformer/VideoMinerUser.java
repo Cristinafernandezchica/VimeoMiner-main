@@ -8,7 +8,6 @@ public class VideoMinerUser {
 
 
     @JsonProperty("id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @JsonProperty("name")
@@ -24,9 +23,6 @@ public class VideoMinerUser {
 
         this.name = name;
         this.user_link = user_link;
-        if(picture_link == null){
-            this.picture_link = "hola";
-        }
         this.picture_link = picture_link;
 
 
