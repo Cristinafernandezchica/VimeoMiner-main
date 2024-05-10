@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/vimeo/channels")
 public class VimeoController {
@@ -25,7 +27,7 @@ public class VimeoController {
 
     @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public VideoMinerChannel findOne(@PathVariable String id,
+    public VideoMinerChannel create(@PathVariable String id,
                                      @RequestParam(required = false, defaultValue = "10") Integer maxVideos,
                                      @RequestParam(required = false, defaultValue = "10") Integer maxComments){
         Channel newChannel = channelService.findOne(id, maxVideos, maxComments);
@@ -35,11 +37,15 @@ public class VimeoController {
         ResponseEntity<VideoMinerChannel> responseEx =
                 restTemplate.exchange(uri, HttpMethod.POST, request, VideoMinerChannel.class);
         VideoMinerChannel createdChannel = responseEx.getBody();
-
-
-
-
-
+        
         return createdChannel;
     }
+
+    @GetMapping("/{id}")
+    public Channel getChannel(@PathVariable String id, @RequestParam(required = false, defaultValue = "10") Integer maxVideos,
+                              @RequestParam(required = false, defaultValue = "10") Integer maxComments){
+        Channel channel = channelService.findOne(id, maxVideos, maxComments);
+        return channel;
+    }
+
 }
