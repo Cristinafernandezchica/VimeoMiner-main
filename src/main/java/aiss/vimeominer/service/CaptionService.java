@@ -2,6 +2,7 @@ package aiss.vimeominer.service;
 
 import aiss.vimeominer.model.Caption.Caption;
 import aiss.vimeominer.model.Caption.CaptionList;
+import aiss.vimeominer.model.Comment.CommentList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -40,9 +41,11 @@ public class CaptionService {
         HttpEntity<Caption> request = new HttpEntity<>(null,headers);
         ResponseEntity<CaptionList> response = restTemplate.exchange
                 (uri, HttpMethod.GET,request, CaptionList.class);
-        captions = response.getBody();
-
-        return captions;
+        if(response.hasBody()){
+            return response.getBody();
+        } else{
+            return new CaptionList();
+        }
     }
 
 

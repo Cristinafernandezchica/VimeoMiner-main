@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+
 @Service
 public class CommentService {
 
@@ -26,11 +28,12 @@ public class CommentService {
         HttpEntity<Comment> request = new HttpEntity<>(null,headers);
         ResponseEntity<CommentList> response = restTemplate.exchange
                 (uri, HttpMethod.GET,request,CommentList.class);
-        comment = response.getBody();
-
-
-        return comment;
-    }
+        if(response.hasBody()){
+            return response.getBody();
+        } else{
+            return new CommentList();
+        }
+   }
 
 
 
