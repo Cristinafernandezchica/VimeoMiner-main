@@ -28,8 +28,6 @@ public class ChannelTransformer {
         videoChannel.setCreatedTime(channel.getCreatedTime());
 
         return videoChannel;
-
-
     }
 
     public ChannelTransformer(){
