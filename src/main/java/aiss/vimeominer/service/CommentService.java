@@ -19,9 +19,10 @@ public class CommentService {
     @Autowired
     RestTemplate restTemplate;
 
+    String token = "57d3ef4edf7af59951007f17a0b0f200";
+
     public CommentList findAll(String videoId, String channelId){
         HttpHeaders headers = new HttpHeaders();
-        String token = "57d3ef4edf7af59951007f17a0b0f200";
         String uri = "https://api.vimeo.com/channels/" + channelId + "/videos/" + videoId +"/comments";
         CommentList comment = null;
         headers.set("Authorization","Bearer " + token);

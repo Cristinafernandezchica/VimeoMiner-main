@@ -14,11 +14,12 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CaptionService {
 
+    String token = "57d3ef4edf7af59951007f17a0b0f200";
+
     @Autowired
     RestTemplate restTemplate;
     public Caption findOne(String videoId,String captionId){
         HttpHeaders headers = new HttpHeaders();
-        String token = "57d3ef4edf7af59951007f17a0b0f200";
         String uri = "https://api.vimeo.com/videos/"+ videoId +
                 "/texttracks/"+ captionId;
         Caption caption = null;
@@ -33,7 +34,6 @@ public class CaptionService {
 
     public CaptionList findAll(String videoId, String channelId){
         HttpHeaders headers = new HttpHeaders();
-        String token = "57d3ef4edf7af59951007f17a0b0f200";
         String uri = "https://api.vimeo.com/channels/"+ channelId +
                 "/videos/"+ videoId + "/texttracks";
         CaptionList captions = null;

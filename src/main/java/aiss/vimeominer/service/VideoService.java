@@ -26,8 +26,10 @@ public class VideoService {
     @Autowired
     CommentService commentService;
 
+    String token = "57d3ef4edf7af59951007f17a0b0f200";
 
-    // videos por channel
+
+    // Busca todos los vídeos de un canal dado su id
     public List<Video> findAll(String id_channel,Integer maxVideos, Integer maxComments) throws MaxCommentsException, MaxVideosException {
         if(maxVideos==null || maxVideos<0){
             throw new MaxVideosException();
@@ -35,9 +37,8 @@ public class VideoService {
         if(maxComments==null || maxComments<0) {
             throw new MaxCommentsException();
         }
-        else if(maxVideos>0){
+        if(maxVideos>0){
             HttpHeaders headers = new HttpHeaders();
-            String token = "57d3ef4edf7af59951007f17a0b0f200";
             String uri = "https://api.vimeo.com/channels/" + id_channel + "/videos";
             headers.set("Authorization","Bearer " + token);
             List<Video> videos = null;
@@ -55,17 +56,14 @@ public class VideoService {
             } else{
                 return new ArrayList<Video>();
             }
-        }
-        else{
+        } else{
             return new ArrayList<Video>();
         }
     }
 
-    // un video por channel
-
+    // Busca un vídeo de un canal dado el id del canal y el id del vídeo
     public Video findOne(String id_channel, String id_video){
         HttpHeaders headers = new HttpHeaders();
-        String token = "57d3ef4edf7af59951007f17a0b0f200";
         String uri = "https://api.vimeo.com/channels/" + id_channel + "/videos/" + id_video;
         headers.set("Authorization","Bearer " + token);
         Video video = null;

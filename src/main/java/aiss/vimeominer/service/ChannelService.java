@@ -18,11 +18,12 @@ public class ChannelService {
     @Autowired
     VideoService videoService;
 
+    String token = "57d3ef4edf7af59951007f17a0b0f200";
+
 
     public Channel findOne(String id,Integer maxVideos, Integer maxComments) throws MaxCommentsException, MaxVideosException ,
             NotFoundException {
         HttpHeaders headers = new HttpHeaders();
-        String token = "57d3ef4edf7af59951007f17a0b0f200";
         String uri = "https://api.vimeo.com/channels/" + id;
         Channel channel = null;
         headers.set("Authorization","Bearer " + token);
